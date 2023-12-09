@@ -1,3 +1,7 @@
+# tubes-hotel-15-frontend (React + Vite)
+Frontend React dari Tugas Besar mata kuliah Pemrograman Web dengan backend Laravel. <br> 
+Link repo backend -> https://github.com/Fredo-Ronan/tubes_hotel_15 <br>
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
