@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Navbar, Container, Nav, Button } from "react-bootstrap";
+import { Navbar, Nav, Button } from "react-bootstrap";
 import "./style/CustomNavbar.css";
 
 export const CustomNavbar = ({ routes }) => {
@@ -27,7 +27,7 @@ export const CustomNavbar = ({ routes }) => {
     <Navbar
       fixed="top"
       expand="lg"
-      className="bg-transparent  d-flex justify-content-around"
+      className="bg-transparent  d-flex justify-content-around mt-3"
       style={isMobile ? { marginRight: "0", marginLeft: "0"} : { marginRight: "6rem", marginLeft: "6rem"}}
     >
       <Navbar.Brand href="#home" className="text-white-navbar" style={{marginRight: "0"}}>
