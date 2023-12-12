@@ -1,0 +1,52 @@
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/src/assets/bg_1.jpg');
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.input-field {
+    background-color: rgba(255, 255, 255, 0.4);
+    caret-color: white;
+}
+
+.input-field .bi {
+    color: white;
+}
+
+.input-field:focus {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: white;
+}
+
+.input-field::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.forgot:hover {
+    transition: all 0.2s ease-in-out;
+    color: #00ff44;
+    cursor: pointer;
+}
+
+.register {
+    color: #16b842;
+    font-weight: bold;
+}
+
+.register:hover {
+    transition: all 0.4s ease-in-out;
+    color: #00ff44;
+    cursor: pointer;
+}
