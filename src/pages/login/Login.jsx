@@ -1,13 +1,28 @@
+import { useState } from "react";
 import { MainLayout } from "../../layouts/MainLayout";
 import "../login/Login.css";
+import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
   const forgotPasswordHandler = () => {
     console.log("FORGOT PASSWORD");
   };
 
   const registerHandler = () => {
     console.log("REGISTER");
+    navigate("/signup");
+  };
+
+  const loginHandler = (event) => {
+    event.preventDefault();
+
+    console.log("SUBMITED");
+    console.log(`Username ${username}`);
+    console.log(`Password ${password}`);
   };
 
   return (
@@ -20,18 +35,32 @@ export const LoginPage = () => {
               <div className="d-flex justify-content-center mb-4">
                 <h2>Login</h2>
               </div>
-              <form action="">
+              <form onSubmit={loginHandler}>
                 <div className="d-flex flex-column gap-4">
                   <input
                     type="text"
                     className="form-control form-control-lg input-field rounded-4"
                     size={40}
                     placeholder="Username"
+                    name="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                    autoComplete="off"
+                    autoCorrect="off"
+                    autoSave="off"
                   />
                   <input
                     type="password"
                     className="form-control form-control-lg input-field rounded-4"
                     placeholder="Password"
+                    name="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    autoComplete="off"
+                    autoCorrect="off"
+                    autoSave="off"
                   />
                 </div>
 
