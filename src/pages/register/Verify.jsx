@@ -3,10 +3,12 @@ import { Verify } from "../../api/apiAuth";
 import { toast } from "sonner";
 import { FaCheckCircle } from "react-icons/fa";
 import { Spinner } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
 export const VerifyPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
+  const { key } = useParams();
 
   const checkVerification = () => {
     setIsLoading(true);
