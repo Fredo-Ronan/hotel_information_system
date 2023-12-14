@@ -1,6 +1,6 @@
 import { CustomNavbar } from "../components/CustomNavbar";
 
-export const MainLayout = () => {
+export const UserLayout = () => {
   const routes = [
     {
       path: "/home",
@@ -13,6 +13,10 @@ export const MainLayout = () => {
     {
       path: "/blog",
       name: "Blog",
+    },
+    {
+      path: "/booking",
+      name: "Booking",
     },
     {
       path: "/contact",
