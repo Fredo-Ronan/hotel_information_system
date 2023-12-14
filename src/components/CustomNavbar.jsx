@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Navbar, Nav, Button } from "react-bootstrap";
+import { Navbar, Nav, Button, Spinner } from "react-bootstrap";
 import "./style/CustomNavbar.css";
 
 export const CustomNavbar = ({ routes }) => {
@@ -23,6 +23,14 @@ export const CustomNavbar = ({ routes }) => {
     }
   }, []);
 
+  const routeLogin = () => {
+    navigate("/");
+  }
+
+  const routeRegister = () => {
+    navigate("/signup");
+  }
+
   return (
     <Navbar
       fixed="top"
@@ -43,8 +51,8 @@ export const CustomNavbar = ({ routes }) => {
           ))}
         </Nav>
         <div className="d-flex gap-2">
-          <Button variant="light">Login</Button>
-          <Button variant="success">Sign Up</Button>
+          <Button variant="light" onClick={routeLogin}>Login</Button>
+          <Button variant="success" onClick={routeRegister}>Sign Up</Button>
         </div>
       </Navbar.Collapse>
     </Navbar>

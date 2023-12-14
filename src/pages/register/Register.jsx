@@ -2,6 +2,9 @@ import { useState } from "react";
 import { MainLayout } from "../../layouts/MainLayout";
 import "../register/Register.css";
 import { useNavigate } from "react-router-dom";
+import { Toaster, toast } from "sonner";
+import { Register } from "../../api/apiAuth";
+import { Spinner } from "react-bootstrap";
 
 export const RegisterPage = () => {
   const [firstName, setFirstName] = useState("");
@@ -10,6 +13,7 @@ export const RegisterPage = () => {
   const [noTelp, setNoTelp] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const loginHandler = () => {
@@ -20,18 +24,37 @@ export const RegisterPage = () => {
   const registerHandler = (event) => {
     event.preventDefault();
 
-    console.log("SUBMITED");
-    console.log(`Username ${username}`);
-    console.log(`Password ${password}`);
-    console.log(`First Name ${firstName}`);
-    console.log(`Last Name ${lastName}`);
-    console.log(`Email ${email}`);
-    console.log(`No Telp ${noTelp}`);
+    // console.log("SUBMITED");
+    // console.log(`Username ${username}`);
+    // console.log(`Password ${password}`);
+    // console.log(`First Name ${firstName}`);
+    // console.log(`Last Name ${lastName}`);
+    // console.log(`Email ${email}`);
+    // console.log(`No Telp ${noTelp}`);
+
+    const data = {
+      "username": username,
+      "password": password,
+      "firstname": firstName,
+      "lastname": lastName,
+      "email": email,
+      "no_telp": noTelp,
+    };
+
+    setIsLoading(true);
+
+    Register(data).then((res) => {
+      navigate(`/verification_send/${encodeURIComponent(email)}`);
+      setIsLoading(false);
+    }).catch((err) => {
+      toast.error(err.data.message);
+    })
   };
 
   return (
     <div className="background-image">
       <div className="overlay">
+        <Toaster position="bottom-right" richColors/>
         <MainLayout />
         <div className="d-flex justify-content-center align-items-center h-100">
           <div className="rounded-2">
@@ -119,7 +142,7 @@ export const RegisterPage = () => {
                     type="submit"
                     className="btn btn-success w-100 rounded-5"
                   >
-                    <h4>Register</h4>
+                    {isLoading ? <Spinner animation="border" variant="light" size="sm"/> : <h4>Register</h4>}
                   </button>
                 </div>
               </form>
