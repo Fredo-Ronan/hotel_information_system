@@ -3,13 +3,15 @@ import { Verify } from "../../api/apiAuth";
 import { Toaster, toast } from "sonner";
 import { FaCheckCircle } from "react-icons/fa";
 import { Spinner } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { MainLayout } from "../../layouts/MainLayout";
 
 export const VerifyPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
-  const { key } = useParams();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const key = searchParams.get("key");
 
   const checkVerification = () => {
     setIsLoading(true);
