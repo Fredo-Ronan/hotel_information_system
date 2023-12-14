@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Verify } from "../../api/apiAuth";
-import { toast } from "sonner";
+import { Toaster, toast } from "sonner";
 import { FaCheckCircle } from "react-icons/fa";
 import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import { MainLayout } from "../../layouts/MainLayout";
 
 export const VerifyPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +41,9 @@ export const VerifyPage = () => {
         <Toaster position="bottom-right" richColors />
         <MainLayout />
         {isLoading ? (
-          <Spinner animation="border" variant="light" size="lg"/>
+            <div className="d-flex flex-column justify-content-center align-items-center h-50">
+                <Spinner animation="border" variant="light" size="lg"/>
+            </div>
         ) : isVerified ? (
           <>
             <div className="d-flex flex-column justify-content-center align-items-center h-50">
@@ -58,7 +61,7 @@ export const VerifyPage = () => {
               </button>
             </div>
           </>
-        ) : null}
+        ) : (<div></div>)}
       </div>
     </div>
   );
