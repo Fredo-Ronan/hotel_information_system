@@ -7,24 +7,16 @@ import { VerifyPage } from "../pages/register/Verify";
 
 const router = createBrowserRouter([
   {
-    path: "*",
-    element: <div>Route Not Found!</div>,
+    path: "/",
+    element: <LoginPage />, // Halaman Login
   },
   {
-    children: [
-      {
-        path: "/",
-        element: <LoginPage />, // Halaman Login
-      },
-      {
-        path: "/signup",
-        element: <RegisterPage />, // Halaman Sign Up/Register
-      },
-      {
-        path: "/verification_send/:email",
-        element: <VerificationSend />, // Halaman Pemberitahuan Untuk Verifikasi ke Email
-      },
-    ],
+    path: "/signup",
+    element: <RegisterPage />, // Halaman Sign Up/Register
+  },
+  {
+    path: "/verification_send/:email",
+    element: <VerificationSend />, // Halaman Pemberitahuan Untuk Verifikasi ke Email
   },
   {
     path: "/verify",
@@ -32,14 +24,14 @@ const router = createBrowserRouter([
   },
   {
     path: "/home",
-    element: <ProtectedRoutes></ProtectedRoutes>,
+    element: <ProtectedRoutes />, // Halaman protected by ProtectedRoutes
+  },
+  {
+    path: "*",
+    element: <div>Route Not Found!</div>,
   },
 ]);
 
 export const AppRouter = () => {
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
+  return <RouterProvider router={router} />;
 };
