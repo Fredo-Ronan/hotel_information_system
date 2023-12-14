@@ -2,10 +2,14 @@ import { useState } from "react";
 import { MainLayout } from "../../layouts/MainLayout";
 import "../login/Login.css";
 import { useNavigate } from "react-router-dom";
+import { Login } from "../../api/apiAuth";
+import { Toaster, toast } from "sonner";
+import { Spinner } from "react-bootstrap";
 
 export const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const forgotPasswordHandler = () => {
@@ -20,15 +24,33 @@ export const LoginPage = () => {
   const loginHandler = (event) => {
     event.preventDefault();
 
-    console.log("SUBMITED");
-    console.log(`Username ${username}`);
-    console.log(`Password ${password}`);
+    // console.log("SUBMITED");
+    // console.log(`Username ${username}`);
+    // console.log(`Password ${password}`);
+
+    const loginData = {
+      "username": username,
+      "password": password,
+    };
+
+    setIsLoading(true);
+
+    Login(loginData).then((res) => {
+      sessionStorage.setItem("token", res.token);
+      sessionStorage.setItem("user", JSON.stringify(res.data));
+      toast.success('Berhasil Login');
+      setIsLoading(false);
+    }).catch((err) => {
+      toast.error(JSON.parse(err.request.response).message);
+      setIsLoading(false);
+    })
   };
 
   return (
     <div className="background-image">
       <div className="overlay">
         <MainLayout />
+        <Toaster position="bottom-right" richColors/>
         <div className="d-flex justify-content-center align-items-center h-100">
           <div className="rounded-2">
             <div className="p-4">
@@ -69,7 +91,7 @@ export const LoginPage = () => {
                     type="submit"
                     className="btn btn-success w-100 rounded-5"
                   >
-                    <h4>Login</h4>
+                    {isLoading ? <Spinner animation="border" variant="light" size="sm"/> : <h4>Login</h4>}
                   </button>
                 </div>
               </form>
