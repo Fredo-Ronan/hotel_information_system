@@ -26,7 +26,7 @@ const router = createBrowserRouter([
                 element: <VerificationSend/> // Halaman Pemberitahuan Untuk Verifikasi ke Email
             },
             {
-                path: "/verify/",
+                path: "/verify",
                 element: <VerifyPage/> // Halaman Check Verification Key
             }
         ]
