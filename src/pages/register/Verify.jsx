@@ -13,7 +13,7 @@ export const VerifyPage = () => {
   const checkVerification = () => {
     setIsLoading(true);
 
-    Verify(decodeURIComponent(key))
+    Verify(key)
       .then((res) => {
         if (res.data.status === "success") {
           toast.success("Selamat! Akun anda sudah aktif");
