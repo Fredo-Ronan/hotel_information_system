@@ -17,16 +17,12 @@ export const LoginPage = () => {
   };
 
   const registerHandler = () => {
-    console.log("REGISTER");
+    // console.log("REGISTER");
     navigate("/signup");
   };
 
   const loginHandler = (event) => {
     event.preventDefault();
-
-    // console.log("SUBMITED");
-    // console.log(`Username ${username}`);
-    // console.log(`Password ${password}`);
 
     const loginData = {
       "username": username,
