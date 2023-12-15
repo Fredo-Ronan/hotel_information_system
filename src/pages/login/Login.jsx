@@ -35,6 +35,7 @@ export const LoginPage = () => {
       sessionStorage.setItem("token", res.token);
       sessionStorage.setItem("user", JSON.stringify(res.data));
       toast.success('Berhasil Login');
+      navigate('/user/home');
       setIsLoading(false);
     }).catch((err) => {
       toast.error(JSON.parse(err.request.response).message);

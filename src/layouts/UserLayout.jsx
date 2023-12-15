@@ -1,6 +1,7 @@
 import { CustomNavbar } from "../components/CustomNavbar";
+import { Outlet } from "react-router-dom";
 
-export const UserLayout = () => {
+export const UserLayout = ({ children }) => {
   const routes = [
     {
       path: "/home",
@@ -24,5 +25,10 @@ export const UserLayout = () => {
     },
   ];
 
-  return <CustomNavbar routes={routes} />;
+  return (
+    <>
+      <CustomNavbar routes={routes} />
+      {children ? children : <Outlet />}
+    </>
+  );
 };
