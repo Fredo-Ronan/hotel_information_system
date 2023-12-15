@@ -17,20 +17,12 @@ export const RegisterPage = () => {
   const navigate = useNavigate();
 
   const loginHandler = () => {
-    console.log("KE LOGIN");
+    // console.log("KE LOGIN");
     navigate("/");
   };
 
   const registerHandler = (event) => {
     event.preventDefault();
-
-    // console.log("SUBMITED");
-    // console.log(`Username ${username}`);
-    // console.log(`Password ${password}`);
-    // console.log(`First Name ${firstName}`);
-    // console.log(`Last Name ${lastName}`);
-    // console.log(`Email ${email}`);
-    // console.log(`No Telp ${noTelp}`);
 
     const data = {
       "username": username,
@@ -47,7 +39,9 @@ export const RegisterPage = () => {
       navigate(`/verification_send/${encodeURIComponent(email)}`);
       setIsLoading(false);
     }).catch((err) => {
-      toast.error(err.data.message);
+      // console.log(JSON.parse(err.request.response).message);
+      toast.error(JSON.parse(err.request.response).message);
+      setIsLoading(false);
     })
   };
 
