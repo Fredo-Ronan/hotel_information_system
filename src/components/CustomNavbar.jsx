@@ -39,6 +39,27 @@ export const CustomNavbar = ({ routes }) => {
     }
   }, []);
 
+
+  // HANDLING NAVBAR SCROLLING BEHAVIOR TO CHANGE BACKGROUND COLOR
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50; // You can adjust this value based on when you want the background to change
+      if (isScrolled !== scrolling) {
+        setScrolling(isScrolled);
+      }
+    };
+
+    // Attach the event listener when the component mounts
+    window.addEventListener('scroll', handleScroll);
+
+    // Detach the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolling]);
+
   const routeLogin = () => {
     navigate("/");
   };
@@ -55,17 +76,17 @@ export const CustomNavbar = ({ routes }) => {
     <Navbar
       fixed="top"
       expand="lg"
-      className="bg-transparent  d-flex justify-content-around mt-3"
+      className={scrolling ? "bg-white d-flex justify-content-around pt-3 pb-3" : "bg-transparent d-flex justify-content-around pt-3 pb-3"}
       style={
         isMobile
-          ? { marginRight: "0", marginLeft: "0" }
-          : { marginRight: "6rem", marginLeft: "6rem" }
+          ? { paddingRight: "0", paddingLeft: "0" }
+          : { paddingRight: "6rem", paddingLeft: "6rem" }
       }
     >
       <Navbar.Brand
         href="#home"
         className="text-white-navbar"
-        style={{ marginRight: "0" }}
+        style={{ marginRight: "0", color: scrolling ? "black" : "white" }}
       >
         <h4>The 5 Stars Hotel</h4>
       </Navbar.Brand>
@@ -73,7 +94,7 @@ export const CustomNavbar = ({ routes }) => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mx-auto d-flex gap-4">
           {routes?.map((route, index) => (
-            <Nav.Link key={index} href="#home" className="text-white-navbar">
+            <Nav.Link key={index} href={route.path} className={scrolling ? "text-black-navbar" : "text-white-navbar"}>
               {route.name}
             </Nav.Link>
           ))}

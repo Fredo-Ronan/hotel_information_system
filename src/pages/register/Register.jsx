@@ -50,7 +50,7 @@ export const RegisterPage = () => {
       <div className="overlay">
         <Toaster position="bottom-right" richColors/>
         <MainLayout />
-        <div className="d-flex justify-content-center align-items-center h-100">
+        <div className="d-flex justify-content-center align-items-center h-100 text-white">
           <div className="rounded-2">
             <div className="p-4">
               <div className="d-flex justify-content-center mb-4">
