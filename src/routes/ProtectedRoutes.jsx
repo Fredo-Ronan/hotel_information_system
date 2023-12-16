@@ -6,7 +6,7 @@ const ProtectedRoutes = ({ children }) => {
   const navigate = useNavigate();
   const [token, setToken] = useState("");
   useEffect(() => {
-    const tokenDariSS = sessionStorage.getItem("token");
+    const tokenDariSS = localStorage.getItem("token");
     setToken(tokenDariSS);
     if (!tokenDariSS) {
       navigate("/");
