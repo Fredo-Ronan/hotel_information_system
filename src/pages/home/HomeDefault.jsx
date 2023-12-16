@@ -1,18 +1,35 @@
 import { useEffect, useState } from "react";
+
+// Assets Import
 import gambar1 from "../../assets/bg_1.jpg";
 import gambar2 from "../../assets/bg_2.jpg";
-import "./HomeDefault.css";
-import { SearchArea } from "../../components/SearchArea";
-import { HighlightedRooms } from "../../components/HighlightedRooms";
-
 import room1 from "../../assets/room-1.jpg";
 import room2 from "../../assets/room-2.jpg";
 import room3 from "../../assets/room-3.jpg";
+
+// Assets Import Facility Icons
+import breakfast from "../../assets/facilities_icons/breakfast icon.png";
+import electricity from "../../assets/facilities_icons/electricity.png";
+import gyms from "../../assets/facilities_icons/gyms icon.png";
+import other from "../../assets/facilities_icons/other service icon.png";
+import parking from "../../assets/facilities_icons/parking icon.png";
+import swimming from "../../assets/facilities_icons/swimming pool icon.png";
+import wifi from "../../assets/facilities_icons/wifi icon.png";
+import workspace from "../../assets/facilities_icons/workspace icon.png";
+
+// Styling Import
+import "./HomeDefault.css";
+
+// Components Import
+import { SearchArea } from "../../components/SearchArea";
+import { HighlightedRooms } from "../../components/HighlightedRooms";
+import { FacilitiesArea } from "../../components/FacilitiesArea";
 
 export const HomeDefaultPage = () => {
   const [rooms, setRooms] = useState([]);
   const [guests, setGuests] = useState([]);
   const [highlighted, setHighlighted] = useState([]);
+  const [facilities, setFacilities] = useState([]);
 
   useEffect(() => {
     const listRoom = ["Luxury", "Suiite", "Deluxe", "Single"];
@@ -40,9 +57,45 @@ export const HomeDefaultPage = () => {
       },
     ];
 
+    const listFacility = [
+        {
+            facilityName: 'Private Workspace',
+            icon: workspace,
+        },
+        {
+            facilityName: 'Parking Area',
+            icon: parking,
+        },
+        {
+            facilityName: 'Breakfast',
+            icon: breakfast,
+        },
+        {
+            facilityName: 'Free Wifi',
+            icon: wifi,
+        },
+        {
+            facilityName: 'Free Electricity',
+            icon: electricity,
+        },
+        {
+            facilityName: 'Swimming Pool',
+            icon: swimming,
+        },
+        {
+            facilityName: 'Exercise Space',
+            icon: gyms,
+        },
+        {
+            facilityName: 'Other Services',
+            icon: other,
+        },
+    ];
+
     setRooms(listRoom);
     setGuests(listGuests);
     setHighlighted(highlightedRooms);
+    setFacilities(listFacility);
   }, []);
 
   return (
@@ -108,6 +161,10 @@ export const HomeDefaultPage = () => {
         {/* Highlighted Rooms */}
         <div>
           <HighlightedRooms highlighted={highlighted} />
+        </div>
+        {/* Facilities */}
+        <div>
+            <FacilitiesArea facilities={facilities}/>
         </div>
       </div>
     </>

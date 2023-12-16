@@ -1,0 +1,35 @@
+.headline-facilities {
+    max-width: 20rem;
+}
+
+.grid-facilities {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 50rem;
+}
+
+.facility-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+    width: 10rem;
+    height: 9rem;
+    box-shadow: 3px 4px 15px -3px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 1300px) {
+    .headline-facilities {
+        max-width: max-content;
+    }
+}
+
+@media (max-width: 767px) {
+    .headline-facilities {
+        max-width: 25rem;
+    }
+}
