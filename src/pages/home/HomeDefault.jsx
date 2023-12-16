@@ -24,6 +24,7 @@ import "./HomeDefault.css";
 import { SearchArea } from "../../components/SearchArea";
 import { HighlightedRooms } from "../../components/HighlightedRooms";
 import { FacilitiesArea } from "../../components/FacilitiesArea";
+import { AboutSection } from "../../components/AboutSection";
 
 export const HomeDefaultPage = () => {
   const [rooms, setRooms] = useState([]);
@@ -165,6 +166,10 @@ export const HomeDefaultPage = () => {
         {/* Facilities */}
         <div>
             <FacilitiesArea facilities={facilities}/>
+        </div>
+        {/* Discover About Section */}
+        <div>
+          <AboutSection/>
         </div>
       </div>
     </>
