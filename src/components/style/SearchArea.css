@@ -1,0 +1,37 @@
+.custom-input {
+    background-color: white;
+    color: black;
+}
+
+.search-area {
+    padding: 2rem;
+    margin-left: 9rem;
+    margin-right: 9rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+@media (max-width: 1300px) {
+    .search-area {
+        padding: 2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .search-area {
+        padding: 2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+    }
+}
