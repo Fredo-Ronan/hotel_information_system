@@ -1,0 +1,21 @@
+.card-container {
+    margin-top: 7rem;
+    margin-left: 20rem;
+    margin-right: 20rem;
+}
+
+@media (max-width: 1300px) {
+    .card-container {
+        margin-top: 7rem;
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    .card-container {
+        margin-top: 7rem;
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+}
