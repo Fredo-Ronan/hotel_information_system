@@ -32,8 +32,8 @@ export const LoginPage = () => {
     setIsLoading(true);
 
     Login(loginData).then((res) => {
-      localStorage.setItem("token", res.token);
-      localStorage.setItem("user", JSON.stringify(res.data));
+      sessionStorage.setItem("token", res.token);
+      sessionStorage.setItem("user", JSON.stringify(res.data));
       toast.success('Berhasil Login');
       navigate('/user/home');
       setIsLoading(false);

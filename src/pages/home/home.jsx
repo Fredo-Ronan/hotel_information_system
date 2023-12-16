@@ -9,7 +9,7 @@ export const HomePage = () => {
   const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
 
     if (token) {
       setIsLogin(true);
