@@ -76,26 +76,5 @@ const router = createBrowserRouter([
 ]);
 
 export const AppRouter = () => {
-
-  useEffect(() => {
-    const handleBeforeUnload = (event) => {
-      // Clear localStorage here
-      localStorage.clear();
-
-      // Optionally, you can provide a custom message to show in the browser's confirmation dialog
-      const confirmationMessage = 'Are you sure you want to leave?';
-      event.returnValue = confirmationMessage; // Standard for most browsers
-      return confirmationMessage; // For older browsers
-    };
-
-    // Attach the event listener when the component mounts
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    // Detach the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, []);
-
   return <RouterProvider router={router} />;
 };
