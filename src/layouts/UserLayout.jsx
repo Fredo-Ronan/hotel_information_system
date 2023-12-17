@@ -4,23 +4,23 @@ import { Outlet } from "react-router-dom";
 export const UserLayout = ({ children }) => {
   const routes = [
     {
-      path: "/home",
+      path: "/user/home",
       name: "Home",
     },
     {
-      path: "/rooms",
+      path: "/user/rooms",
       name: "Rooms",
     },
     {
-      path: "/blog",
+      path: "/user/blog",
       name: "Blog",
     },
     {
-      path: "/booking",
+      path: "/user/your-booking",
       name: "Booking",
     },
     {
-      path: "/contact",
+      path: "/user/contact",
       name: "Contact",
     },
   ];

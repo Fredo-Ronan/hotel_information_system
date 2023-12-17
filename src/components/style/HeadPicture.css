@@ -1,0 +1,23 @@
+.head {
+    position: relative;
+}
+
+.full {
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.5;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 89%; /* Adjust as needed */
+    left: 50%; /* Adjust as needed */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.overlay-text h1,
+.overlay-text p {
+    margin: 0;
+}

@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProtectedRoutes from "./ProtectedRoutes";
 import { LoginPage } from "../pages/login/Login";
@@ -7,6 +5,9 @@ import { RegisterPage } from "../pages/register/Register";
 import { VerificationSend } from "../pages/register/VerificationSend";
 import { UserLayout } from "../layouts/UserLayout";
 import { HomePage } from "../pages/home/home";
+import BookingComponent from "../pages/booking/listbooking";
+import BookingPage from "../pages/booking/Booking";
+import { RoomPage } from "../pages/rooms/Room";
 
 const router = createBrowserRouter([
   // Area Ketika User Login
@@ -28,11 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/user/rooms",
-        element: <></>, // Halaman list kamar
+        element: <RoomPage/>, // Halaman list kamar
       },
       {
         path: "/user/rooms/booking",
-        element: <></>, // Halaman Booking Kamar
+        element: <BookingPage roomDetail={{roomName: "Luxury", roomSpec: "2 adults, haha haha"}}/>, // Halaman Booking Kamar
       },
       {
         path: "/user/rooms/booking/payment",
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
         path: "/user/contact",
         element: <></>, // Halaman informasi kontak hotel
       },
+      {
+        path: "/user/your-booking",
+        element: <BookingComponent/>
+      }
     ],
   },
 
