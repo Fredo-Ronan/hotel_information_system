@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
+
+// Import Assets
 import roomImage from "../../assets/room-3.jpg";
 import gambar1 from "../../assets/bg_2.jpg";
-import { UserLayout } from "../../layouts/UserLayout";
+
+// Import Component
 import { HeadPicture } from "../../components/HeadPicture";
 import { FooterComp } from "../../components/FooterComp";
 
-import "./ListBooking.css";
+import "./ListBookingStyle.css";
 
-const BookingComponent = () => {
+export const ListBookingPage = () => {
   const [listBooking, setListBooking] = useState([]);
 
   useEffect(() => {
@@ -47,7 +50,6 @@ const BookingComponent = () => {
 
   return (
     <div>
-      <UserLayout />
       <HeadPicture gambar={gambar1} headlinePage={"Your Booking"} description={"This is the list of all your booking"}/>
       <div className="main-content">
         {listBooking.map((booking, index) => (
@@ -92,7 +94,7 @@ const BookingComponent = () => {
               borderRadius: "5px",
             }}
             type="submit"
-            onClick={() => (window.location.href = "/pembayaran/detail")}
+            onClick={() => null}
           >
             Selesaikan Booking Anda
           </button>
@@ -103,5 +105,3 @@ const BookingComponent = () => {
     </div>
   );
 };
-
-export default BookingComponent;

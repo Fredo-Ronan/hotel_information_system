@@ -8,9 +8,7 @@ import gambarRoom from '../../assets/room-1.jpg';
 
 import './Booking.css';
 
-const BookingPage = ({ roomDetail }) => {
-  const [bookingDetail, setBookingDetail] = useState([]);
-  const [room, setRoom] = useState();
+export const BookingPage = ({ roomDetail }) => {
   const [firstname, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [noTelp, setNoTelp] = useState();
@@ -45,6 +43,7 @@ const BookingPage = ({ roomDetail }) => {
     const dateExp = monthExp + "/" + yearExp;
 
     const data = {
+      "room_detail": roomDetail,
       "firstname": firstname,
       "lastname": lastName,
       "noTelp": noTelp,
@@ -326,5 +325,3 @@ const BookingPage = ({ roomDetail }) => {
     </div>
   );
 };
-
-export default BookingPage;
