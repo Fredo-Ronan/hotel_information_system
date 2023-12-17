@@ -5,7 +5,6 @@ import { RegisterPage } from "../pages/register/Register";
 import { VerificationSend } from "../pages/register/VerificationSend";
 import { UserLayout } from "../layouts/UserLayout";
 import { HomePage } from "../pages/home/home";
-import BookingComponent from "../pages/booking/listbooking";
 import BookingPage from "../pages/booking/Booking";
 import { RoomPage } from "../pages/rooms/Room";
 
