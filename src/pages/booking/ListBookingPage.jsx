@@ -8,7 +8,7 @@ import gambar1 from "../../assets/bg_2.jpg";
 import { HeadPicture } from "../../components/HeadPicture";
 import { FooterComp } from "../../components/FooterComp";
 
-import "./ListBooking.css";
+import "./ListBookingStyle.css";
 
 export const ListBookingPage = () => {
   const [listBooking, setListBooking] = useState([]);
