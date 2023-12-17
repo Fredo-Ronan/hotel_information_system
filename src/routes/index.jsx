@@ -1,12 +1,19 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// Import Layout
+import { UserLayout } from "../layouts/UserLayout";
+
+// Protected Routes Regulation
 import ProtectedRoutes from "./ProtectedRoutes";
+
+// Import Pages
 import { LoginPage } from "../pages/login/Login";
 import { RegisterPage } from "../pages/register/Register";
 import { VerificationSend } from "../pages/register/VerificationSend";
-import { UserLayout } from "../layouts/UserLayout";
 import { HomePage } from "../pages/home/home";
-import BookingPage from "../pages/booking/Booking";
+import { BookingPage } from "../pages/booking/Booking";
 import { RoomPage } from "../pages/rooms/Room";
+import { ListBookingPage } from "../pages/booking/ListBookingPage";
 
 const router = createBrowserRouter([
   // Area Ketika User Login
@@ -44,7 +51,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/user/your-booking",
-        element: <BookingComponent/>
+        element: <ListBookingPage/>
       }
     ],
   },
