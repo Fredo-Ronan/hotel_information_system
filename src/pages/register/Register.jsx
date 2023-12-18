@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MainLayout } from "../../layouts/MainLayout";
-import "../register/Register.css";
+import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "sonner";
 import { Register } from "../../api/apiAuth";

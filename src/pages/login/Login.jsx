@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MainLayout } from "../../layouts/MainLayout";
-import "../login/Login.css";
+import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import { Login } from "../../api/apiAuth";
 import { Toaster, toast } from "sonner";
