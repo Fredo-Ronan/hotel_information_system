@@ -14,6 +14,7 @@ import { HomePage } from "../pages/home/home";
 import { BookingPage } from "../pages/booking/Booking";
 import { RoomPage } from "../pages/rooms/Room";
 import { ListBookingPage } from "../pages/booking/ListBookingPage";
+import { DetailSection } from "../pages/pembayaran/detail";
 
 const router = createBrowserRouter([
   // Area Ketika User Login
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "/user/your-booking",
         element: <ListBookingPage/>
+      },
+      {
+        path: "/user/pembayaran/detail",
+        element: <DetailSection/>
       }
     ],
   },
