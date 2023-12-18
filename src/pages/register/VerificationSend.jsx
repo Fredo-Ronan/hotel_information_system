@@ -1,5 +1,5 @@
 import { MainLayout } from "../../layouts/MainLayout";
-import "../register/Register.css";
+import "./Register.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { Toaster, toast } from "sonner";
 import { FaCheckCircle } from "react-icons/fa";
