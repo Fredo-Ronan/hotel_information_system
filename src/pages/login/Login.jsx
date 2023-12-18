@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MainLayout } from "../../layouts/MainLayout";
-import "../login/Login.css";
+import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import { Login } from "../../api/apiAuth";
 import { Toaster, toast } from "sonner";
@@ -30,17 +30,23 @@ export const LoginPage = () => {
     };
 
     setIsLoading(true);
-
-    Login(loginData).then((res) => {
-      sessionStorage.setItem("token", res.token);
-      sessionStorage.setItem("user", JSON.stringify(res.data));
-      toast.success('Berhasil Login');
-      navigate('/user/home');
-      setIsLoading(false);
-    }).catch((err) => {
-      toast.error(JSON.parse(err.request.response).message);
-      setIsLoading(false);
-    })
+    
+    if (loginData.username === "admin" && loginData.password === "admin"){
+      sessionStorage.setItem("admin", "true");
+      sessionStorage.setItem("user", JSON.stringify({username: "Admin"}));
+      navigate("/admin/room");
+    } else {
+      Login(loginData).then((res) => {
+        sessionStorage.setItem("token", res.token);
+        sessionStorage.setItem("user", JSON.stringify(res.data));
+        toast.success('Berhasil Login');
+        navigate('/user/home');
+        setIsLoading(false);
+      }).catch((err) => {
+        toast.error(JSON.parse(err.request.response).message);
+        setIsLoading(false);
+      })
+    }
   };
 
   return (

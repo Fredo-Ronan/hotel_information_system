@@ -4,7 +4,7 @@ import "./style/AboutStyle.css";
 
 export const AboutSection = () => {
   return (
-    <div className='card-container'>
+    <div className='cards'>
       <Card style={{backgroundColor: "#f0fff6"}}>
         <Row>
           <Col md={6}>
