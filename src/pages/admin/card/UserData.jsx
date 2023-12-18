@@ -1,7 +1,6 @@
-
-import React from 'react';
-import './Card.css';
-import { useState } from 'react';
+import React from "react";
+import "./Card.css";
+import { useState } from "react";
 
 const UserData = ({ data }) => {
   const { firstName, lastName, email, alamat, noTelepon } = data;
@@ -13,8 +12,11 @@ const UserData = ({ data }) => {
 
   return (
     <div className="card col-12 border-bottom ">
-      <div className="details" style={{ color: 'black' }}>
-      <div className={`custom-checkbox ${isChecked ? 'checked' : ''}`} onClick={handleCheckboxChange}></div>
+      <div className="details" style={{ color: "black" }}>
+        <div
+          className={`custom-checkbox ${isChecked ? "checked" : ""}`}
+          onClick={handleCheckboxChange}
+        ></div>
         <p className="col-1 fs-6">{firstName}</p>
         <p className="col-1 fs-6">{lastName}</p>
         <p className="col-1 fs-6">{email}</p>

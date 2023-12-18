@@ -32,7 +32,9 @@ export const LoginPage = () => {
     setIsLoading(true);
     
     if (loginData.username === "admin" && loginData.password === "admin"){
-      sessionStorage.setItem("token", "admin");
+      sessionStorage.setItem("admin", "true");
+      sessionStorage.setItem("user", JSON.stringify({username: "Admin"}));
+      navigate("/admin/room");
     } else {
       Login(loginData).then((res) => {
         sessionStorage.setItem("token", res.token);

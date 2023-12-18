@@ -28,9 +28,10 @@ export const CustomNavbar = ({ routes }) => {
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
+    const admin = sessionStorage.getItem("admin");
     const userData = sessionStorage.getItem("user");
 
-    if (token) {
+    if (token || admin) {
       setIsLogin(true);
     }
 

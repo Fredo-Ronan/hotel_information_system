@@ -1,12 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import AddRoomForm from "./form/AddRoomForm";
 import { FooterComp } from "../../components/FooterComp";
-import { AdminLayout } from "../../layouts/UserLayout";
-import UserDataPage from "./UserDataPage";
-import RoomDataPage from "./RoomDataPage";
-import BookingListPage from "./BookingListPage";
-import AddRoomPage from "./AddRoomPage";
-
+import { AdminLayout } from "../../layouts/AdminLayout";
 
 export const AdminPage = () => {
   useEffect(() => {
@@ -19,7 +14,6 @@ export const AdminPage = () => {
 
   return (
     <>
-      <AdminLayout />
       <AddRoomForm/>
       <FooterComp />
     </>

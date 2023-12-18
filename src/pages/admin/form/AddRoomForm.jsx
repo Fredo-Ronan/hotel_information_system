@@ -1,32 +1,36 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class AddRoomForm extends Component {
- constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
-      roomName: '',
-      available: '',
-      price: ''
+      roomName: "",
+      available: "",
+      price: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
- }
+  }
 
- handleChange(event) {
-    this.setState({[event.target.name]: event.target.value});
- }
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
 
- handleSubmit(event) {
-    alert('A new room was added: ' + this.state.roomName);
+  handleSubmit(event) {
+    alert("A new room was added: " + this.state.roomName);
     event.preventDefault();
- }
+  }
 
- render() {
+  render() {
     return (
-        <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="roomName" className="form-label fs-3 justify-content-md-start d-flex" style={{color:'black'}}>
+          <label
+            htmlFor="roomName"
+            className="form-label fs-3 justify-content-md-start d-flex"
+            style={{ color: "black" }}
+          >
             Room Name
           </label>
           <input
@@ -38,7 +42,11 @@ class AddRoomForm extends Component {
         </div>
 
         <div className="mb-3">
-          <label htmlFor="available" className="form-label fs-3 justify-content-md-start d-flex" style={{color:'black'}}>
+          <label
+            htmlFor="available"
+            className="form-label fs-3 justify-content-md-start d-flex"
+            style={{ color: "black" }}
+          >
             Available
           </label>
           <input
@@ -50,7 +58,11 @@ class AddRoomForm extends Component {
         </div>
 
         <div className="mb-3">
-          <label htmlFor="price" className="form-label fs-3 justify-content-md-start d-flex" style={{color:'black'}}>
+          <label
+            htmlFor="price"
+            className="form-label fs-3 justify-content-md-start d-flex"
+            style={{ color: "black" }}
+          >
             Price
           </label>
           <input
@@ -71,7 +83,7 @@ class AddRoomForm extends Component {
         </div>
       </form>
     );
- }
+  }
 }
 
 export default AddRoomForm;

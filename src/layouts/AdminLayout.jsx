@@ -1,6 +1,7 @@
 import { CustomNavbar } from "../components/CustomNavbar";
+import { Outlet } from "react-router-dom";
 
-export const AdminLayout = () => {
+export const AdminLayout = ({ children }) => {
   const routes = [
     {
       path: "/admin/room",
@@ -20,5 +21,10 @@ export const AdminLayout = () => {
     },
   ];
 
-  return <CustomNavbar routes={routes} />;
+  return (
+    <>
+      <CustomNavbar routes={routes} />
+      {children ? children : <Outlet />}
+    </>
+  );
 };

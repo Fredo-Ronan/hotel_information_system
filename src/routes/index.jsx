@@ -16,10 +16,11 @@ import { RoomPage } from "../pages/rooms/Room";
 import { ListBookingPage } from "../pages/booking/ListBookingPage";
 import { AdminPage } from "../pages/admin/AdminPage";
 import { AdminLayout } from "../layouts/AdminLayout";
-// import { BookingListPage } from "../pages/admin/form/BookingListPage";
-// import { RoomDataPage } from "../pages/admin/form/RoomDataPage";
-// import { AddRoomPage } from "../pages/admin/form/AddRoomPage";
-// import { UserDataPage } from "../pages/admin/form/UserDataPage";
+import ProtectedAdminRoutes from "./ProtectedAdminRoutes";
+import RoomDataPage from "../pages/admin/RoomDataPage";
+import UserDataPage from "../pages/admin/UserDataPage";
+import BookingListPage from "../pages/admin/BookingListPage";
+import AddRoomPage from "../pages/admin/AddRoomPage";
 
 const router = createBrowserRouter([
   // Area Ketika User Login
@@ -41,11 +42,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/user/rooms",
-        element: <RoomPage/>, // Halaman list kamar
+        element: <RoomPage />, // Halaman list kamar
       },
       {
         path: "/user/rooms/booking",
-        element: <BookingPage roomDetail={{roomName: "Luxury", roomSpec: "2 adults, haha haha"}}/>, // Halaman Booking Kamar
+        element: (
+          <BookingPage
+            roomDetail={{ roomName: "Luxury", roomSpec: "2 adults, haha haha" }}
+          />
+        ), // Halaman Booking Kamar
       },
       {
         path: "/user/rooms/booking/payment",
@@ -57,34 +62,36 @@ const router = createBrowserRouter([
       },
       {
         path: "/user/your-booking",
-        element: <ListBookingPage/>
-      }
+        element: <ListBookingPage />,
+      },
     ],
   },
 
   {
     path: "/admin",
-    element: (<ProtectedRoutes>
-      <AdminLayout/>
-    </ProtectedRoutes>),
+    element: (
+      <ProtectedAdminRoutes>
+        <AdminLayout />
+      </ProtectedAdminRoutes>
+    ),
     children: [
       {
         path: "/admin/room",
-        element: <AdminPage/>
+        element: <RoomDataPage />,
       },
       {
         path: "/admin/addroom",
-        element: <AdminPage/>
+        element: <AddRoomPage />,
       },
       {
         path: "/admin/booking",
-        element: <AdminPage/>
+        element: <BookingListPage />,
       },
       {
         path: "/admin/userdata",
-        element: <AdminPage/>
+        element: <UserDataPage />,
       },
-    ]
+    ],
   },
 
   // Area ketika tidak ada user login
@@ -106,9 +113,8 @@ const router = createBrowserRouter([
         path: "/home",
         element: <HomePage />, // Halaman home tidak login
       },
-    ]
+    ],
   },
-  
 
   // Handle Route Not Found
   {
