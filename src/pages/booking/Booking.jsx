@@ -127,7 +127,7 @@ export const BookingPage = () => {
                     <Form.Group className="mb-3">
                       <Form.Label>Nomor Telepon</Form.Label>
                       <Form.Control
-                        type="tel"
+                        type="number"
                         style={{ borderRadius: '5px' }}
                         placeholder="Nomor Telepon"
                         onChange={handleNoTelpChange}
@@ -145,6 +145,21 @@ export const BookingPage = () => {
                         onChange={handleEmailChange}
                         value={email}
                       />
+                    </Form.Group>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col>
+                    <Form.Group>
+                      <Form.Label>Check In</Form.Label>
+                      <Form.Control type="date"/>
+                    </Form.Group>
+                  </Col>
+
+                  <Col>
+                    <Form.Group>
+                      <Form.Label>Check Out</Form.Label>
+                      <Form.Control type='date'/>
                     </Form.Group>
                   </Col>
                 </Row>

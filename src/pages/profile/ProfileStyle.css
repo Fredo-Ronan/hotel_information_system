@@ -1,0 +1,16 @@
+.profile-container {
+    background-color: white;
+    display: flex;
+    gap: 2rem;
+    padding: 4rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+}
+
+.profile-img {
+    width: min-content;
+}
+
+.profile_image {
+    border-radius: 100%;
+}

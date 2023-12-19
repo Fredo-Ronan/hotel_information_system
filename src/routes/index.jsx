@@ -22,6 +22,7 @@ import UserDataPage from "../pages/admin/UserDataPage";
 import BookingListPage from "../pages/admin/BookingListPage";
 import AddRoomPage from "../pages/admin/AddRoomPage";
 import { DetailRoomPage } from "../pages/rooms/DetailRoom";
+import { ProfilePage } from "../pages/profile/Profile";
 
 const router = createBrowserRouter([
   // Area Ketika User Login
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/user/profile",
-        element: <></>, // Halaman Profil
+        element: <ProfilePage/>, // Halaman Profil
       },
       {
         path: "/user/home",
@@ -47,13 +48,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/user/rooms/detail",
-        element: <DetailRoomPage/>
+        element: <DetailRoomPage />,
       },
       {
         path: "/user/rooms/booking",
-        element: (
-          <BookingPage/>
-        ), // Halaman Booking Kamar
+        element: <BookingPage />, // Halaman Booking Kamar
       },
       {
         path: "/user/rooms/booking/payment",
