@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HeadPicture } from '../../components/HeadPicture';
 import { FooterComp } from '../../components/FooterComp';
 import { Card, Col, Row, Form, Button, Tab, Nav } from 'react-bootstrap';
@@ -8,7 +8,9 @@ import gambarRoom from '../../assets/room-1.jpg';
 
 import './Booking.css';
 
-export const BookingPage = ({ roomDetail }) => {
+export const BookingPage = () => {
+  const [roomDetail, setRoomDetail] = useState();
+
   const [firstname, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [noTelp, setNoTelp] = useState();
@@ -60,6 +62,12 @@ export const BookingPage = ({ roomDetail }) => {
     console.log(data);
   };
 
+  useEffect(() => {
+    const selectedRoomDetail = sessionStorage.getItem("roomDetail");
+
+    setRoomDetail(JSON.parse(selectedRoomDetail));
+  }, []);
+
   return (
     <div>
       <HeadPicture
@@ -78,10 +86,10 @@ export const BookingPage = ({ roomDetail }) => {
                     <MdHotel size={60} color="white" />
                   </Col>
                   <Col className="col-2 fw-bold mt-3">
-                    <h3 style={{ color: 'white' }}>{roomDetail.roomName}</h3>
+                    <h3 style={{ color: 'white' }}>{roomDetail?.roomName}</h3>
                   </Col>
-                  <Col className="col-6 mt-4 ">
-                    <p style={{ color: 'white' }}>{roomDetail.roomSpec}</p>
+                  <Col className="col-6 mt-3 ">
+                    <p style={{ color: 'white' }}> for {roomDetail?.person} persons</p>
                   </Col>
                 </Row>
               </Card.Header>
