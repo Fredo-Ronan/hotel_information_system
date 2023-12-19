@@ -21,6 +21,7 @@ import RoomDataPage from "../pages/admin/RoomDataPage";
 import UserDataPage from "../pages/admin/UserDataPage";
 import BookingListPage from "../pages/admin/BookingListPage";
 import AddRoomPage from "../pages/admin/AddRoomPage";
+import { DetailRoomPage } from "../pages/rooms/DetailRoom";
 
 const router = createBrowserRouter([
   // Area Ketika User Login
@@ -45,11 +46,13 @@ const router = createBrowserRouter([
         element: <RoomPage />, // Halaman list kamar
       },
       {
+        path: "/user/rooms/detail",
+        element: <DetailRoomPage/>
+      },
+      {
         path: "/user/rooms/booking",
         element: (
-          <BookingPage
-            roomDetail={{ roomName: "Luxury", roomSpec: "2 adults, haha haha" }}
-          />
+          <BookingPage/>
         ), // Halaman Booking Kamar
       },
       {

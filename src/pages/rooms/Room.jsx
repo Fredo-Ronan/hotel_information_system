@@ -10,10 +10,12 @@ import room2 from "../../assets/room-2.jpg";
 import room3 from "../../assets/room-3.jpg";
 
 import "./Room.css";
+import { useNavigate } from "react-router-dom";
 
 export const RoomPage = () => {
 
     const [rooms, setRooms] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const roomData = [
@@ -25,6 +27,9 @@ export const RoomPage = () => {
                 availability: 10,
                 status: 'Aktif',
                 price: 120,
+                view: "Beach View",
+                size: 45,
+                max: 4,
             },
             {
                 roomName: 'Bagus',
@@ -34,6 +39,9 @@ export const RoomPage = () => {
                 availability: 10,
                 status: 'Aktif',
                 price: 120,
+                view: "Mountain View",
+                size: 30,
+                max: 3,
             },
             {
                 roomName: 'Bagus',
@@ -43,12 +51,21 @@ export const RoomPage = () => {
                 availability: 10,
                 status: 'Aktif',
                 price: 120,
+                view: "Forest View",
+                size: 20,
+                max: 2,
             },
             // Tambahkan data ruangan lain disini
         ];
 
         setRooms(roomData);
     }, []);
+
+    const handleDetailRoom = (room) => {
+        console.log(room);
+        sessionStorage.setItem("roomDetail", JSON.stringify(room));
+        navigate("/user/rooms/detail");
+    }
 
     return (
         <div>
@@ -59,7 +76,9 @@ export const RoomPage = () => {
                 <h2>Our Rooms</h2>
                 <div className="rooms">
                     {rooms.map((room, index) => (
-                        <RoomCard room={room} key={index}/>
+                        <div className="roomcard" onClick={() => handleDetailRoom(room)} key={index}>
+                            <RoomCard room={room} key={index}/>
+                        </div>
                     ))}
                 </div>
             </div>
