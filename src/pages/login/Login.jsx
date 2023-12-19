@@ -39,7 +39,6 @@ export const LoginPage = () => {
       Login(loginData).then((res) => {
         sessionStorage.setItem("token", res.token);
         sessionStorage.setItem("user", JSON.stringify(res.data));
-        toast.success('Berhasil Login');
         navigate('/user/home');
         setIsLoading(false);
       }).catch((err) => {

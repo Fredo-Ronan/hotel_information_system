@@ -4,6 +4,7 @@ import { HomeDefaultPage } from "./HomeDefault";
 import { FooterComp } from "../../components/FooterComp";
 import { UserLayout } from "../../layouts/UserLayout";
 import "./Home.css";
+import { Toaster, toast } from "sonner";
 
 export const HomePage = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -13,8 +14,9 @@ export const HomePage = () => {
 
     if (token) {
       setIsLogin(true);
+      toast.success("Berhasil Login");
     }
-  });
+  }, []);
 
   return (
     <>
@@ -29,6 +31,7 @@ export const HomePage = () => {
         </>
       )}
       <HomeDefaultPage />
+      <Toaster position="bottom-right" richColors/>
       <FooterComp />
     </>
   );

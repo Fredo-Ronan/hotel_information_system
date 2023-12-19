@@ -70,7 +70,7 @@ export const CustomNavbar = ({ routes }) => {
   };
 
   const profileView = () => {
-    console.log("PROFILE VIEW");
+    navigate("/user/profile");
   }
 
 
