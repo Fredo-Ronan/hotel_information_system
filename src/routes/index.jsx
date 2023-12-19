@@ -4,7 +4,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { UserLayout } from "../layouts/UserLayout";
 
 // Protected Routes Regulation
-import ProtectedRoutes from "./ProtectedRoutes";
 
 // Import Pages
 import { LoginPage } from "../pages/login/Login";
@@ -21,9 +20,8 @@ const router = createBrowserRouter([
   {
     path: "/user",
     element: (
-      <ProtectedRoutes>
-        <UserLayout />
-      </ProtectedRoutes>
+      
+        <></> 
     ), // Halaman protected by ProtectedRoutes
     children: [
       {
