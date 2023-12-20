@@ -9,3 +9,13 @@ export const GetAllUsers = async () => {
 
     return response.data;
 }
+
+export const DeleteUser = async (id) => {
+    const response = await useAxios.delete(`/user/${id}`, {
+        headers: {
+            "Content-Type": "application/json",
+        }
+    });
+
+    return response.data;
+}

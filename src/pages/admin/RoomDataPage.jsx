@@ -8,10 +8,12 @@ import { HeadPicture } from "../../components/HeadPicture";
 import "./card/Card.css";
 import "./GlobalAdminStyle.css";
 import { GetKamar } from "../../api/apiKamar";
+import { useNavigate } from "react-router-dom";
 
 function RoomDataPage() {
   const [roomData, setRoomData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsLoading(true);
@@ -24,6 +26,10 @@ function RoomDataPage() {
         console.log(err);
       });
   }, []);
+
+  const routeAddRoom = () => {
+    navigate("/admin/addroom");
+  }
 
   return (
     <>
@@ -51,19 +57,9 @@ function RoomDataPage() {
               >
                 Room Data
               </p>
-              <select
-                id="dropdown"
-                className="col-1 mb-3"
-                style={{
-                  height: "30px",
-                  backgroundColor: "white",
-                  color: "black",
-                }}
-              >
-                <option value="today">Today</option>
-                <option value="month">Month</option>
-                <option value="year">Year</option>
-              </select>
+              <div className="text-end mb-4">
+                <button type="button" className="btn btn-primary" onClick={routeAddRoom}>Add Room</button>
+              </div>
               <div className="card col-12 border-bottom">
                 <div className="list" style={{ color: "black" }}>
                   <p className="col-2 fw-bold text-center">Room</p>

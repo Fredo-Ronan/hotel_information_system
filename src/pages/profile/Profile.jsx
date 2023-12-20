@@ -15,7 +15,7 @@ import { Modal, Button, Spinner } from "react-bootstrap";
 // React Import
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { GetUserData, UpdateProfileImage } from "../../api/apiProfile";
+import { GetUserData, UpdateProfileData, UpdateProfileImage } from "../../api/apiProfile";
 import { Toaster, toast } from "sonner";
 
 export const ProfilePage = () => {
@@ -25,6 +25,7 @@ export const ProfilePage = () => {
   const [fileNotExists, setFileNotExists] = useState(true);
   const [isLoadingUserData, setIsLoadingUserData] = useState(false);
   const [isLoadingUpload, setIsLoadingUpload] = useState(false);
+  const [isLoadingUpdate, setIsLoadingUpdate] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,19 +34,45 @@ export const ProfilePage = () => {
     setUserData(JSON.parse(user));
   }, []);
 
+  const logoutBtnHandler = () => {
+    sessionStorage.clear();
+    navigate("/");
+    toast.success("Berhasil Logout");
+  };
+
+
+  // EDIT USER PROFIL HANDLING
   const editBtnHandler = () => {
     setDisableEdit(!disabledEdit);
   };
 
   const simpanBtnHandler = (event) => {
     event.preventDefault();
-  };
 
-  const logoutBtnHandler = () => {
-    sessionStorage.clear();
-    navigate("/");
-    toast.success("Berhasil Logout");
+    const updatedUserData = {
+      "firstname": userData.firstname,
+      "lastname": userData.lastname,
+      "email": userData.email,
+      "no_telp": userData.no_telp,
+      "username": userData.username,
+    }
+
+    console.log(updatedUserData);
+
+    setIsLoadingUpdate(true);
+    UpdateProfileData(updatedUserData).then((res) => {
+      console.log(res);
+      toast.success("Berhasil Update Data Profil Anda");
+      setIsLoadingUpdate(false);
+      setDisableEdit(true);
+      updateUserData();
+    }).catch((err) => {
+      console.log(err);
+      toast.error(err);
+      setIsLoadingUpdate(false);
+    })
   };
+  // END OF EDIT USER PROFIL HANDLING
 
   // UPDATE USER DATA HANDLING
   const updateUserData = () => {
@@ -61,6 +88,7 @@ export const ProfilePage = () => {
         console.log(err);
       });
   };
+  // END OF UPDATE USER DATA HANDLING
 
   // FILE HANDLING
   const handleFile = (value) => {
@@ -113,6 +141,7 @@ export const ProfilePage = () => {
         setIsLoadingUpload(false);
       });
   };
+  // END OF FOTO PROFIL HANDLING
 
   return (
     <>
@@ -179,35 +208,46 @@ export const ProfilePage = () => {
             <div>
               <h2>Profil Anda</h2>
 
-              <form>
+              <form onSubmit={simpanBtnHandler}>
                 <div className="d-flex flex-column gap-2">
                   <div className="d-flex gap-2">
-                    <input
-                      type="text"
-                      className="form-control"
-                      disabled={disabledEdit}
-                      name="firstname"
-                      placeholder="Firstname"
-                      value={userData?.firstname}
-                    />
-                    <input
-                      type="text"
-                      className="form-control"
-                      disabled={disabledEdit}
-                      value={userData?.lastname}
-                      name="lastname"
-                      placeholder="Lastname"
-                    />
+                    <div className="col-6">
+                      <label htmlFor="firstname">First Name</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        disabled={disabledEdit}
+                        name="firstname"
+                        placeholder="Firstname"
+                        value={userData?.firstname}
+                        onChange={(e) => setUserData((prev) => ({ ...prev, firstname: e.target.value}))}
+                      />
+                    </div>
+                    <div className="col-6">
+                      <label htmlFor="lastname">Last Name</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        disabled={disabledEdit}
+                        value={userData?.lastname}
+                        name="lastname"
+                        placeholder="Lastname"
+                        onChange={(e) => setUserData((prev) => ({ ...prev, lastname: e.target.value}))}
+                      />
+                    </div>
                   </div>
+                  <label htmlFor="email">Email</label>
                   <input
                     type="text"
                     size={80}
                     className="form-control"
                     name="email"
-                    disabled={disabledEdit}
+                    disabled
                     placeholder="Email"
                     value={userData?.email}
+                    onChange={(e) => setUserData((prev) => ({ ...prev, email: e.target.value}))}
                   />
+                  <label htmlFor="noTelp">No Telepon</label>
                   <input
                     type="number"
                     className="form-control"
@@ -215,7 +255,9 @@ export const ProfilePage = () => {
                     name="noTelp"
                     placeholder="No Telp"
                     value={userData?.no_telp}
+                    onChange={(e) => setUserData((prev) => ({ ...prev, no_telp: e.target.value}))}
                   />
+                  <label htmlFor="username">Username</label>
                   <input
                     type="text"
                     className="form-control"
@@ -223,6 +265,7 @@ export const ProfilePage = () => {
                     name="username"
                     placeholder="Username"
                     value={userData?.username}
+                    onChange={(e) => setUserData((prev) => ({ ...prev, username: e.target.value}))}
                   />
                 </div>
 
@@ -249,9 +292,10 @@ export const ProfilePage = () => {
                       type="submit"
                       className="btn btn-success"
                       disabled={disabledEdit}
-                      onClick={simpanBtnHandler}
                     >
-                      Simpan
+                      {isLoadingUpdate ? <Spinner animation="border" variant="light" size="sm"/>
+                      : "Simpan"
+                      }
                     </button>
                   </div>
 
