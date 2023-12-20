@@ -8,11 +8,10 @@
 .headline {
     margin-top: 2rem;
     margin-bottom: 2rem;
-    margin-left: 20rem;
-    margin-right: 20rem;
+    margin-left: 15rem;
+    margin-right: 15rem;
     color: black;
 }
-
 
 
 @media (max-width: 1300px) {

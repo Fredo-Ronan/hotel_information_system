@@ -41,7 +41,7 @@ export const DetailRoomPage = () => {
       <HeadPicture
         gambar={room?.picture}
         headlinePage={"Room Detail"}
-        description={room?.roomName}
+        description={room?.nama_kamar}
       />
       <div
         className="justify-content-center d-flex"
@@ -51,32 +51,24 @@ export const DetailRoomPage = () => {
           <Card.Body className="d-flex">
             <Card.Img variant="left" className="w-50" src={room?.picture} />
             <div className="w-100 h-100 ms-4">
-              <Card.Title className="fw-bold fs-3">{room?.roomName}</Card.Title>
-              <Card.Text>{room?.roomDescription}</Card.Text>
+              <Card.Title className="fw-bold fs-3">{room?.nama_kamar}</Card.Title>
+              <Card.Text>{room?.deskripsi}</Card.Text>
               <Row>
                 <Col className="col-4">
                   <Card.Text
                     className={
-                      room?.availability < 1
+                      room?.tersedia < 1
                         ? "fw-bold text-danger"
                         : "fw-bold text-success"
                     }
                   >
-                    {room?.availability} Rooms Available
+                    {room?.tersedia} Rooms Available
                   </Card.Text>
                 </Col>
               </Row>
               <Row className="mt-4">
                 <Col className="col-4">
                   <Card.Text>Max: {room?.max} Persons</Card.Text>
-                </Col>
-              </Row>
-              <Row>
-                <Col className="col-4">
-                  <Card.Text>View: {room?.view}</Card.Text>
-                </Col>
-                <Col className="col-4">
-                  <Card.Text>Size: {room?.size} m2</Card.Text>
                 </Col>
               </Row>
               <Row className="mt-4">
@@ -100,7 +92,7 @@ export const DetailRoomPage = () => {
                   <Button variant="success" onClick={bookingHandler}>
                     Book Now
                   </Button>
-                  <h5>for ${room?.price} / night</h5>
+                  <h5>for ${room?.harga} / night</h5>
                 </div>
               </div>
             </div>

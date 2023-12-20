@@ -8,17 +8,20 @@ import { FooterComp } from "../../components/FooterComp";
 // Import Styling
 import "./DetailBooking.css";
 import { useEffect, useState } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Spinner } from "react-bootstrap";
 import { Modal, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { AddBooking } from "../../api/apiBooking";
+import { toast } from "sonner";
 
 export const DetailBookingPage = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [detailBooking, setDetailBooking] = useState();
   const [roomDetail, setRoomDetail] = useState();
   const [days, setDays] = useState();
   const navigate = useNavigate();
 
-  const calculateDays = () => {
+  const calculateDays = async () => {
     const startDateObject = new Date(detailBooking?.checkIn);
     const endDateObject = new Date(detailBooking?.checkOut);
 
@@ -41,7 +44,7 @@ export const DetailBookingPage = () => {
     setRoomDetail(JSON.parse(room));
 
     calculateDays();
-  }, [calculateDays]);
+  }, [days]);
 
   // MODAL HANDLING
   const [showBank, setShowBank] = useState(false);
@@ -49,8 +52,33 @@ export const DetailBookingPage = () => {
 
   const handleCloseBank = () => {
     setShowBank(false);
-    navigate("/user/home");
+
+    const detail = {
+      "nama_pemesan": detailBooking.nama_pemesan,
+      "id_user": detailBooking.id_user,
+      "id_kamar": detailBooking.id_kamar,
+      "check_in": detailBooking.checkIn,
+      "check_out": detailBooking.checkOut,
+      "durasi": days,
+      "jumlah_tamu": roomDetail.person,
+      "total_harga": roomDetail.harga * days,
+    }
+
+    console.log(detail);
+
+    AddBooking(detail).then((res) => {
+      console.log(res);
+      toast.success("Berhasil Booking Kamar");
+
+      setTimeout(() => {
+        navigate("/user/your-booking");
+      }, 2000);
+    }).catch((err) => {
+      console.log(err);
+      toast.error(err);
+    })
   };
+
   const handleShowBank = () => setShowBank(true);
   const handleShowKartuKredit = () => setShowKartuKredit(true);
   const handleCloseKartuKredit = () => setShowKartuKredit(false);
@@ -83,7 +111,10 @@ export const DetailBookingPage = () => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleCloseBank}>
-            Selesai
+            {isLoading ?
+              <Spinner animation="border" variant="light" size="sm"/> :
+              "Selesai"
+            }
           </Button>
         </Modal.Footer>
       </Modal>
@@ -137,7 +168,7 @@ export const DetailBookingPage = () => {
               <div className="d-flex gap-4">
                 <img src={roomDetail?.picture} alt="" width={"500px"} />
                 <div>
-                  <h2>{roomDetail?.roomName}</h2>
+                  <h2>{roomDetail?.nama_kamar}</h2>
                   <p>Jumlah Tamu : {roomDetail?.person} orang</p>
                   <p className="mt-5">
                     Check in : {detailBooking?.checkIn} <br />
@@ -145,7 +176,7 @@ export const DetailBookingPage = () => {
                   </p>
                   <p className="mt-5">Selama {days} hari</p>
                   <p>
-                    Total Harga : <strong>${roomDetail?.price * days}</strong>
+                    Total Harga : <strong>${roomDetail?.harga * days}</strong>
                   </p>
                 </div>
               </div>
@@ -161,7 +192,7 @@ export const DetailBookingPage = () => {
                       className="form-control"
                       disabled
                       value={
-                        detailBooking?.firstname + " " + detailBooking?.lastname
+                        detailBooking?.nama_pemesan
                       }
                     />
                   </div>
@@ -172,7 +203,7 @@ export const DetailBookingPage = () => {
                       id="noTelp"
                       className="form-control"
                       disabled
-                      value={detailBooking?.noTelp}
+                      value={detailBooking?.no_telp}
                     />
                   </div>
                 </div>

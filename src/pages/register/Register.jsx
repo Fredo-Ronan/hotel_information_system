@@ -49,7 +49,6 @@ export const RegisterPage = () => {
     <div className="background-image">
       <div className="overlay">
         <Toaster position="bottom-right" richColors/>
-        <MainLayout />
         <div className="d-flex justify-content-center align-items-center h-100 text-white">
           <div className="rounded-2">
             <div className="p-4">
