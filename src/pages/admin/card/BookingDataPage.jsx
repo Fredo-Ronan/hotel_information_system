@@ -10,7 +10,6 @@ const BookingData = ({ booking }) => {
     checkIn,
     checkOut,
     total,
-    status,
   } = booking;
   const [isChecked, setIsChecked] = useState(false);
 
@@ -31,7 +30,6 @@ const BookingData = ({ booking }) => {
         <p className="col-1">{checkIn}</p>
         <p className="col-1">{checkOut}</p>
         <p className="col-1">{total}</p>
-        <p className={status === "Lunas" ? "col-1 text-green" : "col-1 text-red"}>{status}</p>
       </div>
     </div>
   );
