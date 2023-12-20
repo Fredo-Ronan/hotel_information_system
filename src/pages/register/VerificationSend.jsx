@@ -23,7 +23,7 @@ export const VerificationSend = () => {
       <div className="overlay">
         <Toaster position="bottom-right" richColors/>
         <MainLayout />
-        <div className="d-flex flex-column justify-content-center align-items-center h-50">
+        <div className="d-flex flex-column justify-content-center align-items-center h-50 text-white">
             <FaCheckCircle size={140}/>
             <h2 className="mt-4">Link Verifikasi telah dikirim ke {decodeURIComponent(email)}.</h2>
             <h2>Silahkan cek email anda untuk mengaktifkan akun anda.</h2>

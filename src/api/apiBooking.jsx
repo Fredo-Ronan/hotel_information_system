@@ -31,3 +31,13 @@ export const GetMyBooking = async () => {
 
     return response.data;
 }
+
+export const DeleteBooking = async (id) => {
+    const response = await useAxios.delete(`/booking/${id}`, {
+        headers: {
+            "Content-Type": "application/json",
+        }
+    });
+
+    return response.data;
+}
