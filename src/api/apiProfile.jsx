@@ -14,7 +14,7 @@ export const UpdateProfileImage = async (data) => {
 export const UpdateProfileData = async (data) => {
     const response = await useAxios.post(`/updateProfileData/${JSON.parse(sessionStorage.getItem("user")).id}`, data, {
         headers: {
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "multipart/json",
             Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
     });

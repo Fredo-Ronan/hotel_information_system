@@ -97,32 +97,7 @@ export const LoginPage = () => {
                   </button>
                 </div>
               </form>
-
-              <div
-                style={{ paddingLeft: "0.5rem" }}
-                className="d-flex justify-content-between"
-              >
-                <div className="form-check mt-4">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="flexCheckDefault"
-                  >
-                    Remember Me
-                  </label>
-                </div>
-                <div className="mt-4">
-                  <p className="forgot" onClick={forgotPasswordHandler}>
-                    Forgot Password?
-                  </p>
-                </div>
-              </div>
-              <div className="d-flex justify-content-center">
+              <div className="d-flex justify-content-center mt-4">
                 <p className="d-inline-block" style={{ marginRight: "0.5rem" }}>
                   Don't have account?{" "}
                 </p>

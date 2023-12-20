@@ -85,7 +85,7 @@ export const HomeDefaultPage = () => {
           return room;
         });
 
-        setHighlighted(roomsWithProperties);
+        setHighlighted(roomsWithProperties.slice(0, 3));
         setIsLoading(false);
       })
       .catch((err) => {
@@ -106,19 +106,35 @@ export const HomeDefaultPage = () => {
         >
           <div className="carousel-inner w-100">
             <div
-              className="carousel-item carousel-item-overlay carousel-item-img-cover active"
-              data-bs-interval="4000"
+              className="carousel-item carousel-item-img-cover active"
+              data-bs-interval="2000"
             >
               <div className="carousel-item-img">
-                <img src={gambar1} className="d-block" alt="Gambar" />
+                <img src={gambar1} className="d-block carousel-item-overlay" alt="Gambar" />
+                <div className="text-overlay">
+                  <p>
+                    The 5 Stars Hotel
+                  </p>
+                  <h1>
+                    Feels like staying in your own home
+                  </h1>
+                </div>
               </div>
             </div>
             <div
-              className="carousel-item carousel-item-overlay carousel-item-img-cover"
+              className="carousel-item carousel-item-img-cover"
               data-bs-interval="4000"
             >
               <div className="carousel-item-img">
-                <img src={gambar2} className="d-block" alt="Gambar" />
+                <img src={gambar2} className="d-block carousel-item-overlay" alt="Gambar" />
+                <div className="text-overlay">
+                  <p>
+                    More than just Hotel... An Experience
+                  </p>
+                  <h1>
+                    Hotel for the whole family all year round
+                  </h1>
+                </div>
               </div>
             </div>
           </div>
