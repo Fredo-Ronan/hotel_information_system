@@ -23,6 +23,7 @@ import BookingListPage from "../pages/admin/BookingListPage";
 import AddRoomPage from "../pages/admin/AddRoomPage";
 import { DetailRoomPage } from "../pages/rooms/DetailRoom";
 import { ProfilePage } from "../pages/profile/Profile";
+import { DetailBookingPage } from "../pages/booking/DetailBooking";
 
 const router = createBrowserRouter([
   // Area Ketika User Login
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/user/rooms/booking/payment",
-        element: <></>, // Halaman pembayaran booking kamar
+        element: <DetailBookingPage/>, // Halaman pembayaran booking kamar
       },
       {
         path: "/user/contact",

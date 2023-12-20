@@ -12,16 +12,8 @@ export const UserLayout = ({ children }) => {
       name: "Rooms",
     },
     {
-      path: "/user/blog",
-      name: "Blog",
-    },
-    {
       path: "/user/your-booking",
-      name: "Booking",
-    },
-    {
-      path: "/user/contact",
-      name: "Contact",
+      name: "Your Booking",
     },
   ];
 
