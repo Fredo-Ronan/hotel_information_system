@@ -14,7 +14,6 @@ import { HomePage } from "../pages/home/home";
 import { BookingPage } from "../pages/booking/Booking";
 import { RoomPage } from "../pages/rooms/Room";
 import { ListBookingPage } from "../pages/booking/ListBookingPage";
-import { AdminPage } from "../pages/admin/AdminPage";
 import { AdminLayout } from "../layouts/AdminLayout";
 import ProtectedAdminRoutes from "./ProtectedAdminRoutes";
 import RoomDataPage from "../pages/admin/RoomDataPage";
@@ -24,6 +23,7 @@ import AddRoomPage from "../pages/admin/AddRoomPage";
 import { DetailRoomPage } from "../pages/rooms/DetailRoom";
 import { ProfilePage } from "../pages/profile/Profile";
 import { DetailBookingPage } from "../pages/booking/DetailBooking";
+import { AdminProfilePage } from "../pages/admin/AdminProfile";
 
 const router = createBrowserRouter([
   // Area Ketika User Login
@@ -93,6 +93,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/userdata",
         element: <UserDataPage />,
+      },
+      {
+        path: "/admin/profile",
+        element: <AdminProfilePage/>,
       },
     ],
   },

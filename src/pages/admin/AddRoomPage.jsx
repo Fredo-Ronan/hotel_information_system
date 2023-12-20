@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { Row, Col } from "react-bootstrap";
 import AddRoomForm from "./form/AddRoomForm";
 import gambar1 from "../../assets/bg_1.jpg";
-import gambar2 from "../../assets/bg_2.jpg";
 import { FooterComp } from "../../components/FooterComp";
 import { HeadPicture } from "../../components/HeadPicture";
 import "./GlobalAdminStyle.css";
 
 function AddRoomPage() {
+
   return (
     <>
       <Row>
         <Col>
           <HeadPicture
             gambar={gambar1}
-            headlinePage={"Add Room"}
+            headlinePage={sessionStorage.getItem("room") ? "Edit Room" : "Add Room"}
             description={"Fill all the field to add room"}
           />
         </Col>
@@ -26,10 +26,14 @@ function AddRoomPage() {
               className="fw-bold d-flex  ms-0"
               style={{ color: "black", fontSize: "45px" }}
             >
-              Add Detail Room
+              {sessionStorage.getItem("room") ? "Edit" : "Add"} Detail Room
             </p>
             <div className="col-12">
-              <AddRoomForm />
+              {sessionStorage.getItem("room") ? 
+               <AddRoomForm initialValues={JSON.parse(sessionStorage.getItem("room"))}/>
+               :
+               <AddRoomForm />
+              }
             </div>
           </Row>
         </Col>

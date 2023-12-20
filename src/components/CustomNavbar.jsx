@@ -9,6 +9,7 @@ export const CustomNavbar = ({ routes }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [user, setUser] = useState();
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 756px");
@@ -31,8 +32,13 @@ export const CustomNavbar = ({ routes }) => {
     const admin = sessionStorage.getItem("admin");
     const userData = sessionStorage.getItem("user");
 
-    if (token || admin) {
+    if (token) {
       setIsLogin(true);
+    }
+
+    if(admin) {
+      setIsLogin(true);
+      setIsAdmin(true);
     }
 
     if(userData){
@@ -70,7 +76,11 @@ export const CustomNavbar = ({ routes }) => {
   };
 
   const profileView = () => {
-    navigate("/user/profile");
+    if(isAdmin){
+      navigate("/admin/profile");
+    } else {
+      navigate("/user/profile");
+    }
   }
 
 

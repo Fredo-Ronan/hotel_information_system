@@ -81,7 +81,6 @@ function BookingListPage() {
                 <p className="col-1 fw-bold">Check In</p>
                 <p className="col-1 fw-bold">Check Out</p>
                 <p className="col-1 fw-bold">Total</p>
-                <p className="col-1 fw-bold">Status</p>
               </div>
             </div>
             {bookingData.map((booking, index) => (
