@@ -19,6 +19,7 @@ function UserDataPage() {
     setIsLoading(true);
     GetAllUsers()
       .then((res) => {
+        console.log(res);
         setDataUser(res.data);
         setIsLoading(false);
       })

@@ -9,7 +9,7 @@ export const FacilitiesArea = ({ facilities }) => {
                 <div className="headline-facilities">
                     <h2>We do our best facilities provide you</h2>
                     <p>Discover Your Ideal Haven: Find Your Perfect Stay at The 5 Stars Hotel</p>
-                    <button type="button" className="btn btn-success">Contact Now</button>
+                    <button type="button" className="btn btn-success">Book Now</button>
                 </div>
 
                 <div className="grid-facilities">

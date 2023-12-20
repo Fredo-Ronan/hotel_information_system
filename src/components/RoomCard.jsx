@@ -7,10 +7,10 @@ export const RoomCard = ({ room }) => {
     <Card className="card-style">
       <Card.Img variant="top" src={room.picture} />
       <Card.Body>
-        <Card.Title className="title">{room.roomName}</Card.Title>
+        <Card.Title className="title">{room.nama_kamar}</Card.Title>
         <Card.Text>
           <div className="d-flex justify-content-between">
-            ${room.price} per night
+            ${room.harga} per night
             <div className="d-flex gap-2">
               <div>
                 {Array.from({ length: room.stars }, (_, index) => index).map(

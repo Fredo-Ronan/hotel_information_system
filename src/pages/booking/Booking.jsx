@@ -70,20 +70,15 @@ export const BookingPage = () => {
     const dateExp = monthExp + "/" + yearExp;
 
     const data = {
-      "room_detail": roomDetail,
-      "firstname": firstname,
-      "lastname": lastName,
-      "noTelp": noTelp,
+      "nama_pemesan": firstname + " " + lastName,
       "email": email,
-      "metode": metodePembayaran,
-      "namaKartu": namaDiKartu,
-      "noKartu": noKartu,
-      "expDate": dateExp,
-      "kodeSecurity": kodeSecurity,
-      "billing": billing,
-      "bank": bank,
+      "no_telp": noTelp,
+      "id_user": JSON.parse(sessionStorage.getItem("user")).id,
+      "id_kamar" : roomDetail?.id,
       "checkIn": checkIn,
       "checkOut": checkOut,
+      "metode": metodePembayaran,
+      "bank": bank,
     };
 
     console.log(data);
@@ -116,7 +111,7 @@ export const BookingPage = () => {
                       <MdHotel size={60} color="white" />
                     </Col>
                     <Col className="col-2 fw-bold mt-3">
-                      <h3 style={{ color: 'white' }}>{roomDetail?.roomName}</h3>
+                      <h3 style={{ color: 'white' }}>{roomDetail?.nama_kamar}</h3>
                     </Col>
                     <Col className="col-6 mt-3 ">
                       <p style={{ color: 'white' }}> for {roomDetail?.person} persons</p>

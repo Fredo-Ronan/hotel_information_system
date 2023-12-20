@@ -21,81 +21,77 @@ import workspace from "../../assets/facilities_icons/workspace icon.png";
 import "./HomeDefault.css";
 
 // Components Import
-import { SearchArea } from "../../components/SearchArea";
 import { HighlightedRooms } from "../../components/HighlightedRooms";
 import { FacilitiesArea } from "../../components/FacilitiesArea";
 import { AboutSection } from "../../components/AboutSection";
+import { GetKamar } from "../../api/apiKamar";
+import { Spinner } from "react-bootstrap";
 
 export const HomeDefaultPage = () => {
-  const [rooms, setRooms] = useState([]);
-  const [guests, setGuests] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [highlighted, setHighlighted] = useState([]);
   const [facilities, setFacilities] = useState([]);
 
   useEffect(() => {
-    const listRoom = ["Luxury", "Suiite", "Deluxe", "Single"];
-
-    const listGuests = ["1 Adult", "2 Adult", "3 Adult", "4 Adult", "5 Adult"];
-
-    const highlightedRooms = [
-      {
-        picture: room1,
-        roomName: "Luxury",
-        price: 200,
-        stars: 5,
-      },
-      {
-        picture: room2,
-        roomName: "Deluxe",
-        price: 300,
-        stars: 5,
-      },
-      {
-        picture: room3,
-        roomName: "Suite",
-        price: 500,
-        stars: 5,
-      },
-    ];
-
     const listFacility = [
-        {
-            facilityName: 'Private Workspace',
-            icon: workspace,
-        },
-        {
-            facilityName: 'Parking Area',
-            icon: parking,
-        },
-        {
-            facilityName: 'Breakfast',
-            icon: breakfast,
-        },
-        {
-            facilityName: 'Free Wifi',
-            icon: wifi,
-        },
-        {
-            facilityName: 'Free Electricity',
-            icon: electricity,
-        },
-        {
-            facilityName: 'Swimming Pool',
-            icon: swimming,
-        },
-        {
-            facilityName: 'Exercise Space',
-            icon: gyms,
-        },
-        {
-            facilityName: 'Other Services',
-            icon: other,
-        },
+      {
+        facilityName: "Private Workspace",
+        icon: workspace,
+      },
+      {
+        facilityName: "Parking Area",
+        icon: parking,
+      },
+      {
+        facilityName: "Breakfast",
+        icon: breakfast,
+      },
+      {
+        facilityName: "Free Wifi",
+        icon: wifi,
+      },
+      {
+        facilityName: "Free Electricity",
+        icon: electricity,
+      },
+      {
+        facilityName: "Swimming Pool",
+        icon: swimming,
+      },
+      {
+        facilityName: "Exercise Space",
+        icon: gyms,
+      },
+      {
+        facilityName: "Other Services",
+        icon: other,
+      },
     ];
 
-    setRooms(listRoom);
-    setGuests(listGuests);
-    setHighlighted(highlightedRooms);
+    setIsLoading(true);
+    GetKamar()
+      .then((res) => {
+        // Add properties to each room in the fetched data
+        const roomsWithProperties = res.data.map((room, index) => {
+          // Add properties to each room object
+          room.stars = 5;
+          room.picture =
+            Math.floor(Math.random() * 3) === 0
+              ? room1
+              : index % 3 === 1
+              ? room2
+              : room3;
+
+          return room;
+        });
+
+        setHighlighted(roomsWithProperties);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
     setFacilities(listFacility);
   }, []);
 
@@ -155,21 +151,23 @@ export const HomeDefaultPage = () => {
 
       {/* Main Container Content */}
       <div className="main-container">
-        {/* Search Area Component */}
-        <div>
-          <SearchArea rooms={rooms} guests={guests} />
-        </div>
         {/* Highlighted Rooms */}
         <div>
-          <HighlightedRooms highlighted={highlighted} />
+          {isLoading ? (
+            <div className="text-center">
+              <Spinner animation="border" variant="dark" size="lg" />
+            </div>
+          ) : (
+            <HighlightedRooms highlighted={highlighted} />
+          )}
         </div>
         {/* Facilities */}
         <div>
-            <FacilitiesArea facilities={facilities}/>
+          <FacilitiesArea facilities={facilities} />
         </div>
         {/* Discover About Section */}
         <div>
-          <AboutSection/>
+          <AboutSection />
         </div>
       </div>
     </>

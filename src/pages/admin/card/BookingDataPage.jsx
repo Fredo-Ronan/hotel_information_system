@@ -4,12 +4,12 @@ import { useState } from "react";
 
 const BookingData = ({ booking }) => {
   const {
-    name,
-    roomName,
-    quantity,
-    checkIn,
-    checkOut,
-    total,
+    nama_pemesan,
+    nama_kamar,
+    jumlah_tamu,
+    check_in,
+    check_out,
+    total_harga,
   } = booking;
   const [isChecked, setIsChecked] = useState(false);
 
@@ -24,12 +24,12 @@ const BookingData = ({ booking }) => {
           className={`custom-checkbox ${isChecked ? "checked" : ""}`}
           onClick={handleCheckboxChange}
         ></div>
-        <p className="col-1">{name}</p>
-        <p className="col-1">{roomName}</p>
-        <p className="col-1">{quantity}</p>
-        <p className="col-1">{checkIn}</p>
-        <p className="col-1">{checkOut}</p>
-        <p className="col-1">{total}</p>
+        <p className="col-1">{nama_pemesan}</p>
+        <p className="col-1">{nama_kamar}</p>
+        <p className="col-1">{jumlah_tamu}</p>
+        <p className="col-1">{check_in}</p>
+        <p className="col-1">{check_out}</p>
+        <p className="col-1">${total_harga}</p>
       </div>
     </div>
   );

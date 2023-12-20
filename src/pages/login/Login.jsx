@@ -52,7 +52,6 @@ export const LoginPage = () => {
   return (
     <div className="background-image">
       <div className="overlay">
-        <MainLayout />
         <Toaster position="bottom-right" richColors/>
         <div className="d-flex justify-content-center align-items-center h-100 text-white">
           <div className="rounded-2">

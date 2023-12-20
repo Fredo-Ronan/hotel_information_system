@@ -157,7 +157,7 @@ export const ProfilePage = () => {
             <div className="profile-img">
               <img
                 src={
-                  userData?.profile_img === ""
+                  userData?.profile_img === "data:image/;base64,"
                     ? profileImg
                     : userData?.profile_img
                 }
