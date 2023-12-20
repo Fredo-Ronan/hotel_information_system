@@ -12,7 +12,7 @@ import { Card, Spinner } from "react-bootstrap";
 import { Modal, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { AddBooking } from "../../api/apiBooking";
-import { toast } from "sonner";
+import { Toaster, toast } from "sonner";
 
 export const DetailBookingPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -54,29 +54,34 @@ export const DetailBookingPage = () => {
     setShowBank(false);
 
     const detail = {
-      "nama_pemesan": detailBooking.nama_pemesan,
-      "id_user": detailBooking.id_user,
-      "id_kamar": detailBooking.id_kamar,
-      "check_in": detailBooking.checkIn,
-      "check_out": detailBooking.checkOut,
-      "durasi": days,
-      "jumlah_tamu": roomDetail.person,
-      "total_harga": roomDetail.harga * days,
-    }
+      nama_pemesan: detailBooking.nama_pemesan,
+      id_user: detailBooking.id_user,
+      id_kamar: detailBooking.id_kamar,
+      check_in: detailBooking.checkIn,
+      check_out: detailBooking.checkOut,
+      durasi: days,
+      jumlah_tamu: roomDetail.person,
+      total_harga: roomDetail.harga * days,
+    };
 
     console.log(detail);
 
-    AddBooking(detail).then((res) => {
-      console.log(res);
-      toast.success("Berhasil Booking Kamar");
+    setIsLoading(true);
+    AddBooking(detail)
+      .then((res) => {
+        console.log(res);
+        toast.success("Berhasil Booking Kamar");
+        setIsLoading(false);
 
-      setTimeout(() => {
-        navigate("/user/your-booking");
-      }, 2000);
-    }).catch((err) => {
-      console.log(err);
-      toast.error(err);
-    })
+        setTimeout(() => {
+          navigate("/user/your-booking");
+        }, 2000);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(err);
+        setIsLoading(false);
+      });
   };
 
   const handleShowBank = () => setShowBank(true);
@@ -85,6 +90,7 @@ export const DetailBookingPage = () => {
 
   return (
     <>
+      <Toaster position="bottom-right" richColors />
       <Modal show={showBank} onHide={handleCloseBank}>
         <Modal.Header closeButton>
           <Modal.Title>Cara Pembayaran Bank</Modal.Title>
@@ -101,7 +107,10 @@ export const DetailBookingPage = () => {
               Petunjuk Pembayaran <br />
               <ol>
                 <li>Masuk ke menu Transfer kemudian klik Tambah Penerima</li>
-                <li>Pilih Bank Tujuan kemudian masukan no rekening 911 3990 4899 4975 dan klik tombol lanjutkan</li>
+                <li>
+                  Pilih Bank Tujuan kemudian masukan no rekening 911 3990 4899
+                  4975 dan klik tombol lanjutkan
+                </li>
                 <li>Masukan nominal yang diminta</li>
                 <li>Klik tombol transfer</li>
                 <li>Selesai</li>
@@ -111,10 +120,11 @@ export const DetailBookingPage = () => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleCloseBank}>
-            {isLoading ?
-              <Spinner animation="border" variant="light" size="sm"/> :
+            {isLoading ? (
+              <Spinner animation="border" variant="light" size="sm" />
+            ) : (
               "Selesai"
-            }
+            )}
           </Button>
         </Modal.Footer>
       </Modal>
@@ -135,7 +145,10 @@ export const DetailBookingPage = () => {
               Petunjuk Pembayaran <br />
               <ol>
                 <li>Masuk ke menu Transfer kemudian klik Tambah Penerima</li>
-                <li>Pilih Bank Tujuan kemudian masukan no rekening 911 3990 4899 4975 dan klik tombol lanjutkan</li>
+                <li>
+                  Pilih Bank Tujuan kemudian masukan no rekening 911 3990 4899
+                  4975 dan klik tombol lanjutkan
+                </li>
                 <li>Masukan nominal yang diminta</li>
                 <li>Klik tombol transfer</li>
                 <li>Selesai</li>
@@ -191,9 +204,7 @@ export const DetailBookingPage = () => {
                       id="firstname"
                       className="form-control"
                       disabled
-                      value={
-                        detailBooking?.nama_pemesan
-                      }
+                      value={detailBooking?.nama_pemesan}
                     />
                   </div>
                   <div className="col-6">
