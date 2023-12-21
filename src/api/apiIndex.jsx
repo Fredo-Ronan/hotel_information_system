@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Hosting Vercel Base URL
-export const BASE_URL = "https://tubes-hotel-15.vercel.app";
+export const BASE_URL = "https://the5stars-hotel-api.vercel.app/";
 
 // Localhost Base URL
 // export const BASE_URL = "http://127.0.0.1:8000";
