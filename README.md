@@ -4,7 +4,7 @@
 
 ## Anggota Kelompok:
 - Martinus Bagas Billy Valentino Putra (210711354) - Frontend React Halaman Booking, Booking Detail, Modal Pembayaran.
-- Boniface Fredo Ronan Antolino (210711446) - Backend API Laravel, Frontend Login, Register, Halaman Utama, Integrasi Backend dan Frontend, Deploy dan Hosting.
+- Boniface Fredo Ronan Antolino (210711446) - Backend API Laravel, Frontend React Login, Register, Halaman Utama, Integrasi Backend dan Frontend, Deploy dan Hosting.
 - Iqbal Firmansyah Adinda (210711485) - Frontend React Admin.
 
 ## Username & Password Login:
