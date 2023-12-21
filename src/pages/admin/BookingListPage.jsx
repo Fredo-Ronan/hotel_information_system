@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col, Spinner } from "react-bootstrap";
-import gambar1 from "../../assets/bg_1.jpg";
+
+// Import Assets
 import gambar2 from "../../assets/bg_2.jpg";
+
+// Import Components
 import BookingData from "./card/BookingDataPage";
 import { FooterComp } from "../../components/FooterComp";
 import { HeadPicture } from "../../components/HeadPicture";
 
+// Import API Component
+import { GetBooking } from "../../api/apiBooking";
+
+// Import Styling
 import "./card/Card.css";
 import "./GlobalAdminStyle.css";
-import { GetBooking } from "../../api/apiBooking";
+
 
 function BookingListPage() {
   const [bookingData, setBookingData] = useState([]);

@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { HeadPicture } from '../../components/HeadPicture';
-import { FooterComp } from '../../components/FooterComp';
+import { useNavigate } from 'react-router-dom';
 import { Card, Col, Row, Form, Button, Tab, Nav } from 'react-bootstrap';
+
+// Import React Icons
 import { MdHotel } from 'react-icons/md';
 import { IoMdWallet } from 'react-icons/io';
+
+// Import Components
+import { HeadPicture } from '../../components/HeadPicture';
+import { FooterComp } from '../../components/FooterComp';
+
+// Import Assets
 import gambarRoom from '../../assets/room-1.jpg';
 
+// Import Styling
 import './Booking.css';
-import { useNavigate } from 'react-router-dom';
 
 export const BookingPage = () => {
   const navigate = useNavigate();

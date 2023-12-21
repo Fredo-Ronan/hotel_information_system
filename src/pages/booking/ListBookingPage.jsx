@@ -8,8 +8,11 @@ import gambar1 from "../../assets/bg_2.jpg";
 import { HeadPicture } from "../../components/HeadPicture";
 import { FooterComp } from "../../components/FooterComp";
 
-import "./ListBookingStyle.css";
+// Import API Component
 import { GetMyBooking } from "../../api/apiBooking";
+
+// Import Styling
+import "./ListBookingStyle.css";
 
 export const ListBookingPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +22,6 @@ export const ListBookingPage = () => {
     setIsLoading(true);
     GetMyBooking()
       .then((res) => {
-        console.log(res);
         setListBooking(res.data);
         setIsLoading(false);
       })

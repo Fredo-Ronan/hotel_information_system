@@ -21,6 +21,7 @@ export const DetailBookingPage = () => {
   const [days, setDays] = useState();
   const navigate = useNavigate();
 
+  // UNTUK KALKULASI BERAPA HARI DARI RENTANG TANGGAL YANG DIPILIH
   const calculateDays = async () => {
     const startDateObject = new Date(detailBooking?.checkIn);
     const endDateObject = new Date(detailBooking?.checkOut);
@@ -35,6 +36,7 @@ export const DetailBookingPage = () => {
       setDays(null);
     }
   };
+  // END OF KALULASI HARI
 
   useEffect(() => {
     const detail = sessionStorage.getItem("detailBooking");
@@ -51,8 +53,6 @@ export const DetailBookingPage = () => {
   const [showKartuKredit, setShowKartuKredit] = useState(false);
 
   const handleCloseBank = () => {
-    setShowBank(false);
-
     const detail = {
       nama_pemesan: detailBooking.nama_pemesan,
       id_user: detailBooking.id_user,
@@ -64,14 +64,13 @@ export const DetailBookingPage = () => {
       total_harga: roomDetail.harga * days,
     };
 
-    console.log(detail);
-
     setIsLoading(true);
+    toast.warning("Loading....");
     AddBooking(detail)
       .then((res) => {
-        console.log(res);
         toast.success("Berhasil Booking Kamar");
         setIsLoading(false);
+        setShowBank(false);
 
         setTimeout(() => {
           navigate("/user/your-booking");
@@ -85,8 +84,7 @@ export const DetailBookingPage = () => {
   };
 
   const handleShowBank = () => setShowBank(true);
-  const handleShowKartuKredit = () => setShowKartuKredit(true);
-  const handleCloseKartuKredit = () => setShowKartuKredit(false);
+  // END OF MODAL HANDLING
 
   return (
     <>

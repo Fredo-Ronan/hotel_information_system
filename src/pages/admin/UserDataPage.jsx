@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Row, Col, Spinner } from "react-bootstrap";
 
+// Import Assets
 import gambar2 from "../../assets/bg_2.jpg";
 
+// Import Components
 import { UserData } from "./card/UserData";
 import { FooterComp } from "../../components/FooterComp";
 import { HeadPicture } from "../../components/HeadPicture";
 
+// Import API Component
+import { GetAllUsers } from "../../api/apiUser";
+
+// Import Styling
 import "./card/Card.css";
 import "./GlobalAdminStyle.css";
-import { GetAllUsers } from "../../api/apiUser";
 
 function UserDataPage() {
   const [dataUser, setDataUser] = useState([]);

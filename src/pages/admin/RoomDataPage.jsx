@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Row, Col, Spinner } from "react-bootstrap";
+
+// Import Assets
 import gambar2 from "../../assets/bg_2.jpg";
-import RoomData from "./card/RoomData";
+
+// Import Components
 import { FooterComp } from "../../components/FooterComp";
 import { HeadPicture } from "../../components/HeadPicture";
+import RoomData from "./card/RoomData";
 
+// Import Assets
+import { GetKamar } from "../../api/apiKamar";
+
+// Import Styling
 import "./card/Card.css";
 import "./GlobalAdminStyle.css";
-import { GetKamar } from "../../api/apiKamar";
-import { useNavigate } from "react-router-dom";
+
 
 function RoomDataPage() {
   const [roomData, setRoomData] = useState([]);

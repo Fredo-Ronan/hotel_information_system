@@ -45,7 +45,6 @@ export const RoomPage = () => {
   }, []);
 
   const handleDetailRoom = (room) => {
-    console.log(room);
     sessionStorage.setItem("roomDetail", JSON.stringify(room));
     navigate("/user/rooms/detail");
   };

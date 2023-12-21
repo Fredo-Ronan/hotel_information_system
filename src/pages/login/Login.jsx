@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { MainLayout } from "../../layouts/MainLayout";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import { Login } from "../../api/apiAuth";
@@ -12,12 +11,7 @@ export const LoginPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const forgotPasswordHandler = () => {
-    console.log("FORGOT PASSWORD");
-  };
-
   const registerHandler = () => {
-    // console.log("REGISTER");
     navigate("/signup");
   };
 

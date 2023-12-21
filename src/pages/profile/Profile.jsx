@@ -57,11 +57,8 @@ export const ProfilePage = () => {
       "username": userData.username,
     }
 
-    console.log(updatedUserData);
-
     setIsLoadingUpdate(true);
     UpdateProfileData(updatedUserData).then((res) => {
-      console.log(res);
       toast.success("Berhasil Update Data Profil Anda");
       setIsLoadingUpdate(false);
       setDisableEdit(true);
@@ -79,7 +76,6 @@ export const ProfilePage = () => {
     setIsLoadingUserData(true);
     GetUserData()
       .then((res) => {
-        console.log(res);
         sessionStorage.setItem("user", JSON.stringify(res.data));
         setUserData(res.data);
         setIsLoadingUserData(false);
@@ -129,7 +125,6 @@ export const ProfilePage = () => {
     setIsLoadingUpload(true);
     UpdateProfileImage(formData)
       .then((res) => {
-        console.log(res);
         toast.success("Berhasil Update Foto Profil");
         handleClose();
         updateUserData();

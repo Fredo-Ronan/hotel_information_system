@@ -1,7 +1,9 @@
-import { HeadPicture } from "../../components/HeadPicture"
-import gambar1 from "../../assets/bg_1.jpg";
-import { FooterComp } from "../../components/FooterComp";
 import { useNavigate } from "react-router-dom";
+
+import gambar1 from "../../assets/bg_1.jpg";
+
+import { HeadPicture } from "../../components/HeadPicture"
+import { FooterComp } from "../../components/FooterComp";
 
 export const AdminProfilePage = () => {
 
