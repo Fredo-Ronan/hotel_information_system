@@ -1,6 +1,6 @@
 # UAS Pemrograman Web Gasal 2023/2024
 
-## Kelas B Kelompok 18
+## Kelas B Kelompok 15
 
 ## Anggota Kelompok:
 - Martinus Bagas Billy Valentino Putra (210711354) - Frontend React Halaman Booking, Booking Detail, Modal Pembayaran.
