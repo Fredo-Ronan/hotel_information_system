@@ -1,12 +1,24 @@
-# tubes-hotel-15-frontend (React + Vite)
-Frontend React dari Tugas Besar mata kuliah Pemrograman Web dengan backend Laravel. <br> 
-Link repo backend -> https://github.com/Fredo-Ronan/tubes_hotel_15 <br>
+# UAS Pemrograman Web Gasal 2023/2024
 
-# React + Vite
+## Kelas B Kelompok 18
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Anggota Kelompok:
+- Martinus Bagas Billy Valentino Putra (210711354) - Frontend React Halaman Booking, Booking Detail, Modal Pembayaran.
+- Boniface Fredo Ronan Antolino (210711446) - Backend API Laravel, Frontend Login, Register, Halaman Utama, Integrasi Backend dan Frontend, Deploy dan Hosting.
+- Iqbal Firmansyah Adinda (210711485) - Frontend React Admin.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Username & Password Login:
+- Login User:
+   - Username : User 1
+   - Password : password1
+- Login Admin:
+   - Username : admin
+   - Password : admin
+## Bonus Yang diambil
+- Hosting:
+   - Backend: [https://the5stars-hotel-api.vercel.app/](https://the5stars-hotel-api.vercel.app/)
+   - Frontend: [https://the5stars-hotel.vercel.app/](https://the5stars-hotel.vercel.app/)
+- Bonus API:
+    - GET
+- React:
+   - Link Repository: 
