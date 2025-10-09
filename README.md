@@ -1,4 +1,4 @@
-# UAS Pemrograman Web Gasal 2023/2024
+# Hotel Information System Frontend | UAS Pemrograman Web Gasal 2023/2024
 
 ## Kelas B Kelompok 15
 
