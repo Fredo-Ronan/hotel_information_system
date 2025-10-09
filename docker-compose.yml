@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  react-app:
+    build: .
+    container_name: frontend_hotel_information_system
+    ports:
+      - "8000:80"
+    restart: unless-stopped
+    networks:
+      - tunnel
+
+networks:
+  tunnel:
+    external: true
