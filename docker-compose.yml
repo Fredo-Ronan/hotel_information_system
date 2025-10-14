@@ -1,15 +1,15 @@
 version: "3.8"
 
 services:
-  react-app:
+   his:
     build: .
-    container_name: frontend_hotel_information_system
+    container_name: hotel_information_system
+    restart: unless-stopped
     ports:
       - "8000:80"
-    restart: unless-stopped
     networks:
-      - tunnel
+      - server_network
 
 networks:
-  tunnel:
+  server_network:
     external: true
