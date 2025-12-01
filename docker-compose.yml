@@ -4,9 +4,12 @@ services:
    his:
     build: .
     container_name: hotel_information_system
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5" # 0.5 cores
+          memory: 512M # 512 MB of RAM
     restart: unless-stopped
-    ports:
-      - "8000:80"
     networks:
       - server_network
 
