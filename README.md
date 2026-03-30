@@ -1,5 +1,29 @@
 # Hotel Information System Frontend | UAS Pemrograman Web Gasal 2023/2024
 
+### A bit of story behind this project 🧐
+This project is one of my college big assignment to make a Full Stack Hotel Information System. This project is originally hosted using vercel, but later after roughly 3 years later, i've built my own home server so that i can deploy this project on my own server at home that i control. Therefore i've dockerized this project so that it's easy to deploy on any machine. <br><br>
+You can access the demo at https://his.fredoronan.web.id/ if you want to give it a try. **Remember** that **anyone can make their own account**, but if you want to use the existing account, you can use this: <br><br>
+<strong>User Account</strong><br>
+| Field | Value |
+|----------|-----------|
+| Username | userDummy |
+| Password | dummyUser1! |
+
+#### _There is an admin account that can manage almost anything, but please be responsible to this admin account if you want to give a try to it._
+
+<strong>Admin Account (manage rooms, bookings and user data)</strong><br>
+| Field | Value |
+|----------|-----------|
+| Username | admin |
+| Password | admin |
+
+
+This repository is the frontend side of the project that built using Vite with React Framework for the UI. <br>
+The Backend: https://github.com/Fredo-Ronan/hotel_information_system_api
+<br><br>
+
+> _Below is just details that important when i submit the assignment to the lecturer, so you can ignore those :)_
+
 ## Kelas B Kelompok 15
 
 ## Anggota Kelompok:
